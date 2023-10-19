@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@font-face {
+    font-family: 'Funever';
+    src: url('/font/black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Funever';
+    src: url('/font/bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Funever';
+    src: url('/font/extra-bold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Funever';
+    src: url('/font/extra-light.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Funever';
+    src: url('/font/light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Funever';
+    src: url('/font/medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Funever';
+    src: url('/font/regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Funever';
+    src: url('/font/semi-bold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Funever';
+    src: url('/font/thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+:root {
+    --geo: 'Geologica', sans-serif;
+    --fun: 'Funever', sans-serif;
+
+}
+
+.collapse {
+    display: none;
+    transition: height 0.3s ease-in-out;
+    /* Добавляем анимацию для высоты */
+}
+
+.collapse.show {
+    display: block;
+}
+
+body {
+    overflow-x: hidden;
+    background: #111110;
+}
+
+body::-webkit-scrollbar {
+    width: 0;
+}
+
+html {
+    scroll-behavior: smooth !important;
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.ql-toolbar.ql-snow {
+    border: 2px solid #000;
+}
+
+.swiper-button-disabled {
+    opacity: 0.4 !important;
+    transition: all .3s ease;
+}
+
+h1, h2, h3, h4, h5, h6, span, p, a, small, div, li {
+    font-variant-numeric: lining-nums proportional-nums !important;
+}
