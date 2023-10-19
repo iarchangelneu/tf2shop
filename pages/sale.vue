@@ -17,8 +17,11 @@
                 <button @click="getSteam()" :disabled="!sales" ref="update">Обновить инвентарь</button>
             </div>
         </div>
-
-        <div class="catalog">
+        <div class="empty" v-if="nado.length <= 0">
+            <img src="@/assets/img/empty.png" class="img-fluid" alt="">
+            <h1>инвентарь пока пуст</h1>
+        </div>
+        <div class="catalog" v-else>
             <div class="catalog__items">
                 <div class="catalog__item" v-if="sales" v-for="item in inventory.results" :key="item.id">
                     <img :src="item.img" alt="" class="item__image">
@@ -80,6 +83,7 @@ export default {
             modal: {},
             sales: true,
             search: '',
+            nado: [],
         }
     },
     methods: {
@@ -129,6 +133,7 @@ export default {
                 .then((res) => {
                     console.log(res);
                     this.inventory = res.data.transactions_item.map(item => item.item);
+                    this.nado = res.data.transactions_item.map(item => item.item);
                 });
         },
         getSteam() {
@@ -184,6 +189,7 @@ export default {
                 .then((res) => {
                     console.log(res)
                     this.inventory = res.data
+                    this.nado = res.data.results
                 })
         },
         toggleFilter() {
@@ -247,6 +253,32 @@ useSeoMeta({
 
     @media (max-width: 1024px) {
         padding: 130px 20px 40px;
+    }
+
+    .empty {
+        margin-top: 60px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 20px;
+
+        h1 {
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 130%;
+            /* 26px */
+            text-transform: uppercase;
+            font-family: var(--geo);
+            color: #fff;
+            text-align: center;
+
+            @media (max-width: 1024px) {
+                font-size: 16px;
+            }
+        }
     }
 
     .catalog {

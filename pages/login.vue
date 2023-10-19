@@ -24,7 +24,7 @@
                             srcset="" />
                     </div>
                 </div>
-
+                <small>{{ error }}</small>
                 <div class="btns">
                     <button @click="login">Войти</button>
                     <button @click="loginSteam">Войти через Steam</button>
@@ -49,6 +49,7 @@ export default {
             email: '',
             password: '',
             pathUrl: 'https://tf2shop.kz',
+            error: '',
         }
     },
     methods: {
@@ -75,7 +76,7 @@ export default {
                 })
                 .catch((error) => {
                     console.log(error);
-                    // this.error = error.response.data.non_field_errors.toString()
+                    this.error = error.response.data.non_field_errors.toString()
                 });
         },
         loginSteam() {
@@ -134,6 +135,12 @@ useSeoMeta({
 
     @media (max-width: 1024px) {
         padding: 0;
+    }
+
+    small {
+        color: red;
+        font-family: var(--mon);
+        font-size: 14px;
     }
 
     .form {

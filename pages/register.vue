@@ -38,6 +38,7 @@
                             srcset="" />
                     </div>
                 </div>
+                <small>{{ error }}</small>
                 <div class="btns">
                     <button @click="register()">Регистрация</button>
                     <button @click="loginSteam()">Войти через Steam</button>
@@ -62,6 +63,7 @@ export default {
             email: '',
             password: '',
             repeat_password: '',
+            error: '',
         }
     },
     methods: {
@@ -102,7 +104,7 @@ export default {
                     }
                 })
                 .catch((error) => {
-                    this.error = error.response.data.detail
+                    this.error = error.response.data.username[0]
                     console.log(error.response);
                 });
 
@@ -146,6 +148,12 @@ useSeoMeta({
 
     @media (max-width: 1024px) {
         padding: 0;
+    }
+
+    small {
+        color: red;
+        font-family: var(--geo);
+        font-size: 14px;
     }
 
     .form {
